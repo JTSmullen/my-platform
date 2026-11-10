@@ -38,3 +38,22 @@ npm run build
 ```
 
 The production build is created in `frontend/dist/`.
+
+## Deploy to Cloudflare Workers
+
+Use these settings for the connected `my-platform` Worker:
+
+| Setting | Value |
+| --- | --- |
+| Root directory | `frontend` |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+The `wrangler.jsonc` file sets the Worker name to `my-platform` and serves the built files from `dist/`.
+
+To deploy locally from `frontend/`, build first and then deploy:
+
+```bash
+npm run build
+npx wrangler deploy
+```
