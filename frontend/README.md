@@ -51,6 +51,8 @@ Use these settings for the connected `my-platform` Worker:
 
 The `wrangler.jsonc` file sets the Worker name to `my-platform` and serves the built files from `dist/`.
 
+Cloudflare stores preview build settings separately from production settings. For preview branches, set the root directory to `frontend`, the build command to `npm run build`, and the preview command to `npx wrangler preview`. Apply these settings to existing previews as well as the defaults for future previews. The Wrangler file does not set the directory used by Cloudflare's dependency installation step.
+
 To deploy locally from `frontend/`, build first and then deploy:
 
 ```bash

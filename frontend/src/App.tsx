@@ -10,11 +10,13 @@ type Report = {
 
 function App() {
 
-  const sampleReport: Report = {
-    id: "1",
-    text: "This is a sample bug report.",
-    kind: "bug"
-  };
+  const initialReports: Report[] = [
+    { id: '1', text: 'Navigation link is broken', kind: 'bug' },
+    { id: '2', text: 'Add dark mode', kind: 'feature' },
+  ]
+
+
+
 
   return (
     <main>
@@ -30,8 +32,13 @@ function App() {
       <section className = "report-board">
         <h2>Bugs & Feature reqeusts</h2>
         <div className = "report">
-          <h3>{sampleReport.text}</h3>
-          <p>{sampleReport.kind}</p>
+          <ul>  
+            {initialReports.map((report) => (    
+                  <li key={report.id}>     
+                      {report.text} ({report.kind})    
+                  </li>  
+            ))}
+          </ul>
         </div>
       </section>
     </main>
